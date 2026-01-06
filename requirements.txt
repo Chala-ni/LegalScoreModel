@@ -1,53 +1,63 @@
 # ============================================
-# Phase 1: Data Engineering & OCR Extraction
+# Legal Argument Critic API - Dependencies
 # ============================================
-# For processing PDFs and extracting text from Sinhala+English legal documents
 
-# Progress Bars
-tqdm==4.66.1
+# Core dependencies for the FastAPI backend server
+# Install: pip install -r requirements.txt
 
-# PDF to Image Conversion
-pdf2image==1.16.3
-Pillow==10.1.0
+# ============================================
+# Web Framework
+# ============================================
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
 
-# OCR Engine (Python bindings for Tesseract)
-pytesseract==0.3.10
-
-# Progress Tracking
-tqdm==4.66.1
-
-# Data Handling
-pandas==2.1.4
-numpy==1.26.2
-
-# Utilities
-python-dotenv==1.0.0
+# File Upload Support
+python-multipart>=0.0.6
 
 # PDF Processing
-pdfplumber==0.10.3
+pypdf>=3.17.0
+
+# HTTP Client
+requests>=2.31.0
+
+# Environment Variables
+python-dotenv==1.0.0
 
 # ============================================
-# Phase 2: ML Training & Fine-Tuning
+# Optional: For Local Model Training
 # ============================================
-# For fine-tuning (done on Kaggle - not needed for local inference)
-# Commented out to avoid installation issues on Windows
+# (These are only needed if training on local machine)
+# Uncomment if needed:
 
-# google-genai>=0.1.0
-# unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git
+# torch>=2.0.0
+# transformers>=4.36.0
+# peft>=0.7.0
+# accelerate>=0.25.0
+# datasets>=2.16.0
+# bitsandbytes>=0.41.0
 
 # ============================================
-# Phase 3: FastAPI Inference Server (LOCAL)
+# Optional: For OCR (Document Processing)
 # ============================================
-# For serving the fine-tuned model via REST API on Windows
+# (Only needed if processing new PDFs)
+# Uncomment if needed:
 
-# Core ML Libraries (Windows compatible versions)
-torch>=2.0.0
-transformers>=4.36.0
-peft>=0.7.0
-accelerate>=0.25.0
+# pytesseract==0.3.10
+# pdf2image==1.16.3
+# Pillow==10.1.0
+# pdfplumber==0.10.3
+# pandas==2.1.4
+# numpy==1.26.2
+# tqdm==4.66.1
 
-# Dataset Handling
-datasets>=2.16.0
+# ============================================
+# Notes
+# ============================================
+# - For fine-tuning: Use Kaggle/Colab with GPU (see training_pipeline/)
+# - For local inference: Use OpenRouter/Gemini backends (no torch needed)
+# - For Ollama: Run scripts/merge_and_convert_ollama.py (torch needed once)
+
 huggingface-hub>=0.20.0
 
 # Unsloth for loading the adapter (install separately if needed)
