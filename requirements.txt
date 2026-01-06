@@ -1,0 +1,79 @@
+# ============================================
+# Phase 1: Data Engineering & OCR Extraction
+# ============================================
+# For processing PDFs and extracting text from Sinhala+English legal documents
+
+# Progress Bars
+tqdm==4.66.1
+
+# PDF to Image Conversion
+pdf2image==1.16.3
+Pillow==10.1.0
+
+# OCR Engine (Python bindings for Tesseract)
+pytesseract==0.3.10
+
+# Progress Tracking
+tqdm==4.66.1
+
+# Data Handling
+pandas==2.1.4
+numpy==1.26.2
+
+# Utilities
+python-dotenv==1.0.0
+
+# PDF Processing
+pdfplumber==0.10.3
+
+# ============================================
+# Phase 2: ML Training & Fine-Tuning
+# ============================================
+# For fine-tuning (done on Kaggle - not needed for local inference)
+# Commented out to avoid installation issues on Windows
+
+# google-genai>=0.1.0
+# unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git
+
+# ============================================
+# Phase 3: FastAPI Inference Server (LOCAL)
+# ============================================
+# For serving the fine-tuned model via REST API on Windows
+
+# Core ML Libraries (Windows compatible versions)
+torch>=2.0.0
+transformers>=4.36.0
+peft>=0.7.0
+accelerate>=0.25.0
+
+# Dataset Handling
+datasets>=2.16.0
+huggingface-hub>=0.20.0
+
+# Unsloth for loading the adapter (install separately if needed)
+# unsloth @ git+https://github.com/unslothai/unsloth.git
+
+# Web Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+
+# File Upload Support
+python-multipart>=0.0.6
+
+# PDF Processing for Upload Endpoint
+pypdf>=3.17.0
+
+# HTTP Client for API calls
+requests>=2.31.0
+
+# Training Utilities
+wandb==0.16.2
+tensorboard==2.15.1
+
+# Evaluation
+scikit-learn==1.3.2
+rouge-score==0.1.2
+
+# Note: Install this on Google Colab, not locally
+# Install command: pip install -r requirements-ml.txt
